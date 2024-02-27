@@ -8,13 +8,28 @@ import {
   Text,
 } from 'react-native';
 
-function ToDoList(props) {
+function ToDoList({ tasks }) {
   return (
     <>
       <ScrollView>
-        <Pressable>
+        {
+          <Pressable>
+            {tasks.map((tasks) => (
+              <View style={[styles.task, styles.completed]}>
+                <Text style={styles.taskText}>{tasks}</Text>
+              </View>
+            ))}
+          </Pressable>
+        /* <Pressable>
+          {tasks.map((tasks) => (
+            <li>
+              <tasks task={tasks.task} completed={tasks.completed} taskText={tasks.taskText} />
+            </li>
+          ))}
+        </Pressable> */}
+        {/* <Pressable>
           <View style={[styles.task, styles.completed]}>
-            <Text style={styles.taskText}>Do laundry</Text>
+            <Text style={styles.taskText}>{tasks}</Text>
           </View>
         </Pressable>
         <Pressable>
@@ -26,7 +41,8 @@ function ToDoList(props) {
           <View style={[styles.task, styles.completed]}>
             <Text style={styles.taskText}>Walk dog</Text>
           </View>
-        </Pressable>
+        </Pressable> */}
+
       </ScrollView>
     </>
   );
