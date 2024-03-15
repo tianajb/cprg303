@@ -17,12 +17,12 @@ function ToDoForm({ addTask }) {
     <>
       <View style={styles.form}>
         <TextInput
-          style={styles.input}
+          style={[styles.input]}
           placeholder="Add a new task..."
           onChangeText={(text) => setTaskText(text)}
           value={taskText}
         />
-        <Button title="Add Task" onPress={() => addTask(taskText)} />
+        <Button style={[styles.taskText]} title="Add task" onPress={() => addTask(taskText)} />
       </View>
     </>
   );
@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
   },
   taskText: {
     fontSize: 16,
+  },
+  form: {
+    padding: 10,
   },
 });
 export default ToDoForm;

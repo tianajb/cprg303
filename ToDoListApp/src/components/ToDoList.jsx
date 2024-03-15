@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -13,13 +14,17 @@ function ToDoList({ tasks }) {
     <>
       <ScrollView>
         {
-          <Pressable>
-            {tasks.map((task) => (
-              <View style={[styles.task, styles.completed]} key={task.id}>
-                <Text style={styles.taskText}>{task}</Text>
-              </View>
-            ))}
-          </Pressable>
+          <SafeAreaView>
+            <ScrollView>
+              {tasks.map((task, index) => (
+                <Pressable key={index}>
+                  <View style={[styles.task, styles.completed]}>
+                    <Text style={styles.taskText}>{task}</Text>
+                  </View>
+                </Pressable>
+              ))}
+            </ScrollView>
+          </SafeAreaView>
         }
 
 
